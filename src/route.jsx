@@ -1,10 +1,11 @@
-// route.jsx
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
+import Privateroute from "./Privateroute";
+
 import HomePage from "./pages/HomePage";
 import Admin from "./pages/Admin";
-import SignIn from "./pages/SignIn";
-import Students from "./pages/Students";
+import Sigin from "./pages/Sigin";
+import Alunos from "./pages/Alunos";
 import Dashboard from "./pages/Dashboard";
 
 const RouteConfig = () => (
@@ -13,9 +14,9 @@ const RouteConfig = () => (
       <Route path="/" element={<HomePage />} />
       <Route path="/teste" element={<HomePage />} />
       <Route path="/secretaria" element={<Admin />} />
-      <Route path="/centraldoaluno" element={<Students />} />
-      <Route path="/admin-logado" element={<PrivateRoute><SignIn /></PrivateRoute>} />
-      <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      <Route path="/centraldoaluno" element={<Alunos />} />
+      <Route path="/admin-logado" element={<Privateroute><Sigin /></Privateroute>} />
+      <Route path="/dashboard" element={<Privateroute><Dashboard /></Privateroute>} />
     </Routes>
   </BrowserRouter>
 );
