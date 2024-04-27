@@ -13,7 +13,7 @@ const Header = () => {
                     <ul>
                         <li><a href="/">Inicio</a></li>
                         <li><a href="#cards-item">Cursos</a></li>
-                        <li><a href="/teste">Contato</a></li>
+                        <li><a href="#contact-container">Contato</a></li>
                         <li><a href="/secretaria">Secretaria</a></li>
                         <li><a href="/centraldoaluno">Central do Aluno</a></li>
                     </ul>
