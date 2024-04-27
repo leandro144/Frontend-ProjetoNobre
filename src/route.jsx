@@ -12,6 +12,7 @@ const RouteConfig = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/teste" element={<HomePage />} />
       <Route path="/secretaria" element={<Admin />} />
       <Route path="/centraldoaluno" element={<Alunos />} />
       <Route path="/admin-logado" element={<Privateroute><Sigin /></Privateroute>} />
