@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .325rem 2%;
+}
+
+.logo img{
+  width: 120px;
+  height: 60px;
+}
+
+nav ul {
+  display: flex;
+  gap: 3rem;
+  list-style-type: none;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: #434851;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.menu-mobile {
+  display: none;
+  position: relative;
+}
+
+.icon {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon.active {
+  background: none;
+}
+
+.menu-mobile-nav {
+  display: none;
+  flex-direction: column;
+  background-color: blue; 
+  padding: 10px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 999;
+  width: 40%;
+  height: 100vh;
+}
+
+.menu-mobile-nav.active {
+  display: flex;
+  justify-content: center;
+}
+
+
+.menu-mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.menu-mobile-nav ul li {
+  margin-right: 10px;
+}
+
+.menu-mobile-nav ul li a {
+  color: #fff;
+}
+
+.slides img {
+  width: 100%;
+  height: 79vh;
+}
+
+.title {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.content {
+  padding: 0 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: .625rem;
+}
+
+.cards {
+  width: 280px;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.cards-item {
+  display: flex;
+  flex-direction: column;
+  gap: .825rem;
+}
+
+.cards-item img {
+  width: 250px;
+  height: 200px;
+}
+
+.contact-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  background-color: #002774;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-form input, button {
+  width: 350px;
+  padding: .825rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.info-form button {
+  background-color: #16AFE8;
+  cursor: pointer;
+}
+
+.titles {
+  color: #fff;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 120px;
+  height: 60px;
+}
+
+.animated-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.animated-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.animated-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.animated-content p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.animated-content ul {
+  text-align: justify;
+  list-style: none;
+}
+
+.animated-content ul li {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.courses-info {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.courses-info h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.courses-info input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.courses-info input:focus {
+  border-color: #4b6cb7;
+}
+
+.animated-content ul li span {
+  margin-right: 5px;
+}
+
+.content-admin {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.form-login {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 40%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.input-admin {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.input-admin input {
+  border-radius: 5px;
+  border: none;
+  background-color: #cbcbcb;
+  padding: 1rem;
+}
+
+#btn {
+  width: 100%;
+  background-color: green;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-admin {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.adm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20%;
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.adm-login {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.adm-login input {
+  border-radius: 5px;
+  border: none;
+  background-color: #cbcbcb;
+  padding: 1rem;
+}
+
+.adm-login label{
+  font-weight: bold;
+}
+
+.content-dash {
+  width: 100%;
+  height: 100vh;
+  background-color: #002774;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.datadash {
+  color: #fff;
+  height: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-download {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+#btn-dash {
+  background-color: red;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 756px) {
+
+  .menu-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .icon {
+      display: block;
+  }
+
+  .menu {
+      display: none;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .slides img {
+    height: 70vh;
+  }
+
+  .form-admin {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .slides img {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .slides img {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .slides img {
+    height: 30vh;
+  }
+}
