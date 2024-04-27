@@ -12,10 +12,10 @@ const RouteConfig = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/secretaria" element={<Admin />} />
-      <Route path="/centraldoaluno" element={<Alunos />} />
-      <Route path="/admin-logado" element={<Privateroute><Sigin /></Privateroute>} />
-      <Route path="/dashboard" element={<Privateroute><Dashboard /></Privateroute>} />
+      <Route path="https://colegionobre.netlify.app/secretaria" element={<Admin />} />
+      <Route path="https://colegionobre.netlify.app/centraldoaluno" element={<Alunos />} />
+      <Route path="https://colegionobre.netlify.app/admin-logado" element={<Privateroute><Sigin /></Privateroute>} />
+      <Route path="https://colegionobre.netlify.app/dashboard" element={<Privateroute><Dashboard /></Privateroute>} />
     </Routes>
   </BrowserRouter>
 );
