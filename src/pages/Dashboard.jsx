@@ -53,24 +53,25 @@ const Dashboard = () => {
       if (!userData || !userData.filePath) {
         throw new Error('Dados do usuário não disponíveis');
       }
-
+  
       const token = localStorage.getItem('token');
-      const fetchData = await fetch("https://node-mongo-t3v4.onrender.com/user-data", {
+      const fileName = userData.filePath;
+  
+      const fetchData = await fetch(`https://node-mongo-t3v4.onrender.com/download-pdf/${fileName}`, {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`,
-          "Accept": "application/pdf"
+          "Authorization": `Bearer ${token}`
         }
       });
-
+  
       if (!fetchData.ok) {
         throw new Error('Erro ao baixar o arquivo');
       }
-
+  
       const blob = await fetchData.blob();
       const url = window.URL.createObjectURL(blob);
+  
       const link = document.createElement('a');
-      const fileName = userData.filePath.split('/').pop(); 
       link.href = url;
       link.setAttribute('download', fileName);
       document.body.appendChild(link);
@@ -81,7 +82,7 @@ const Dashboard = () => {
       alert('Ocorreu um erro ao baixar o arquivo');
     }
   };
-
+  
   return (
     <>
       <Header />
