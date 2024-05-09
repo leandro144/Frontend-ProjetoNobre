@@ -87,25 +87,55 @@ const Dashboard = () => {
     <>
       <Header />
       <div className="content-dash">
-        <button id="btn-dash" onClick={handleLogout}>
-          <span className="icon-dash">
-            <IoMdLogOut />
-          </span>
-        </button>
-        {loading ? (
-          <p>Carregando...</p>
-        ) : (
-          <div className="datadash">
-            <span><FaUserGraduate /></span>
-            <p>{userData ? userData.nome : 'Não disponível'}</p>
-            {userData && userData.filePath && isValidFileType(userData.filePath) && (
-              <a href="#" onClick={handleDownload} id="btn-download">Baixar Arquivo</a>
-            )}
-            {userData && !isValidFileType(userData.filePath) && (
-              <p>O arquivo não é do tipo PDF</p>
-            )}
-          </div>
-        )}
+        <div className="flex-dash">
+            <button id="btn-dash" onClick={handleLogout}>
+            <span className="icon-dash">
+              <IoMdLogOut />
+            </span>
+          </button>
+          {loading ? (
+            <p>Carregando...</p>
+          ) : (
+            <div className="datadash">
+              <span><FaUserGraduate /></span>
+              <p>{userData ? userData.nome : 'Não disponível'}</p>
+              {userData && userData.filePath && isValidFileType(userData.filePath) && (
+                <a href="#" onClick={handleDownload} id="btn-download">Baixar Arquivo</a>
+              )}
+              {userData && !isValidFileType(userData.filePath) && (
+                <p>O arquivo não é do tipo PDF</p>
+              )}
+            </div>
+          )}
+        </div>
+        <div className="center-table">
+          <table className="custom-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Total de presença</th>
+                <th>Total de faltas</th>
+                <th>Nota atv-1</th>
+                <th>Nota atv-2</th>
+                <th>Nota da Prova</th>
+                <th>Média</th>
+                <th>Resultado final</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{userData ? userData.nome : 'Não disponível'}</td>
+                <td>{userData ? userData.totalAttendance : 'Não disponível'}</td>
+                <td>{userData ? userData.totalFault : 'Não disponível'}</td>
+                <td>{userData ? userData.Ativ1 : 'Não disponível'}</td>
+                <td>{userData ? userData.ativ2 : 'Não disponível'}</td>
+                <td>{userData ? userData.Prova : 'Não disponível'}</td>
+                <td>{userData ? userData.media : 'Não disponível'}</td>
+                <td>{userData ? userData.resultFinal : 'Não disponível'}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

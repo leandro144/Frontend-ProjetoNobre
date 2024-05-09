@@ -16,6 +16,7 @@ const Header = () => {
                         <li><a href="#contact-container">Contato</a></li>
                         <li><a href="/secretaria">Secretaria</a></li>
                         <li><a href="/centraldoaluno">Central do Aluno</a></li>
+                        <li><a href="/centraldosprofessores">Central dos professores</a></li>
                     </ul>
                 </nav>
             </header>

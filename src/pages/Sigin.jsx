@@ -3,6 +3,7 @@ import Header from "../components/Header";
 
 const Sigin = () => {
 
+  // REGISTRO DE ALUNOS //
   const [registerData, setRegisterData] = useState({
     nome: '',
     email: '',
@@ -62,12 +63,58 @@ const Sigin = () => {
     }));
   };
 
+  // REGISTRO DE PROFESSORES //
+
+  const [registerTeacher, setRegisterTeacher] = useState({
+    name: '',
+    email: '',
+    password: '',
+    matters: ''
+  })
+
+  const handleRegisterTeacherChange = (e) => {
+    const { name, value } = e.target;
+    setRegisterTeacher(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleTeacherSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const fetchRegisterTeacher = await fetch('http://localhost:3000/register-teacher', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registerTeacher)
+      })
+
+      if(fetchRegisterTeacher.ok){
+        const res = await fetchRegisterTeacher.json()
+        setRegisterTeacher(res)
+        setRegisterTeacher({
+          name: '',
+          email: '',
+          password: '',
+          matters: '',
+        })
+        alert('professor adicionado com sucesso!!')
+      }
+    } catch (error) {
+      console.log(error)
+      alert('Erro ao cadastrar professor!!')
+    }
+  }
+
   return (
     <>
       <Header />
       <div className="content-admin">
         <form className="form-login" onSubmit={handleRegisterSubmit} encType="multipart/form-data">
-          <legend>Registro de usuários para declaração</legend>
+          <legend>Registro de alunos para declaração</legend>
           <div className="input-admin">
             <label htmlFor="nome">Nome Completo</label>
             <input
@@ -104,6 +151,52 @@ const Sigin = () => {
               type="file"
               name="file"
               onChange={handleFileChange} />
+          </div>
+          <div className="input-admin">
+            <button type="submit" id="btn" style={{ cursor: 'pointer' }}>Enviar</button>
+          </div>
+        </form>
+        <form className="form-login" onSubmit={handleTeacherSubmit} >
+          <legend>Cadastrar professores</legend>
+          <div className="input-admin">
+            <label htmlFor="nome">Nome Completo</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nome completo"
+              value={registerTeacher.name}
+              onChange={handleRegisterTeacherChange}
+              required />
+          </div>
+          <div className="input-admin">
+            <label htmlFor="email">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="e-mail"
+              value={registerTeacher.email}
+              onChange={handleRegisterTeacherChange}
+              required />
+          </div>
+          <div className="input-admin">
+            <label htmlFor="password">Senha</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={registerTeacher.password}
+              onChange={handleRegisterTeacherChange}
+              required />
+          </div>
+          <div className="input-admin">
+            <label htmlFor="password">Matéria</label>
+            <input
+              type="text"
+              name="matters"
+              placeholder="displina que dará aula"
+              value={registerTeacher.matters}
+              onChange={handleRegisterTeacherChange}
+              required />
           </div>
           <div className="input-admin">
             <button type="submit" id="btn" style={{ cursor: 'pointer' }}>Enviar</button>

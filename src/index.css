@@ -239,10 +239,12 @@ footer {
 
 .content-admin {
   width: 100%;
-  height: 90vh;
+  height: 100%;
   display: flex;
+  padding: 1.1rem 0;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   background-color: blue;
 }
 
@@ -259,6 +261,7 @@ footer {
   flex-direction: column;
   text-align: left;
   margin-top: 1rem;
+  margin-bottom: .625rem;
   gap: 1rem;
 }
 
@@ -317,11 +320,14 @@ footer {
 
 .content-dash {
   width: 100%;
-  height: 100vh;
+  height: 89vh;
   background-color: #002774;
+  padding: 1rem;
+}
+
+.flex-dash {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
 }
 
 .datadash {
@@ -357,6 +363,191 @@ footer {
 .icon-dash {
   font-size: 1.5rem;
   color: red;
+}
+
+.content-teacher {
+  width: 100%;
+  height: 89vh;
+  padding: 1rem 0;
+  background-color: #03B1E9;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-teacher {
+  background-color: #002774;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.inputs-teacher {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: .625rem;
+  margin-bottom: 1rem;
+}
+
+#legend {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.inputs-teacher input {
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.inputs-teacher button {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.inputs-teacher button:hover{
+  background-color: green;
+  color: #fff;
+}
+
+.content-dash-teacher {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+  background-color: #03B1E9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teacher-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.teacher-details h3 {
+  color: #fff;
+}
+
+.show-details {
+  background-color: #fff;
+  width: 200px;
+  padding: 1rem .625rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.show-details p {
+  color: #000;
+}
+
+.logout-icon {
+  text-align: right;
+}
+
+.logout-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.content-add-grades {
+  background-color: #fff;
+  width: 70%;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.add-grades-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-grades-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group select,
+.form-group input[type='number'],
+.form-group input[type='text'] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color: #000 !important;
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #03B1E9;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #037dad;
+}
+
+.center-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65vh;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.custom-table th {
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  font-weight: normal;
+}
+
+.custom-table tbody {
+  background-color: #fff;
+  text-align: center;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #ddd;
 }
 
 @media screen and (max-width: 756px) {

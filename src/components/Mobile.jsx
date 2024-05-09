@@ -23,6 +23,7 @@ const Mobile = () => {
                         <li><a href="">Contato</a></li>
                         <li><a href="/secretaria">Secretaria</a></li>
                         <li><a href="/centraldoaluno">Central do aluno</a></li>
+                        <li><a href="/centraldosprofessores">Central dos professores</a></li>
                     </ul>
                 </nav>
                 <TiThMenu className={`icon ${mobile ? 'active' : ''}`} onClick={toggleMenu} />
