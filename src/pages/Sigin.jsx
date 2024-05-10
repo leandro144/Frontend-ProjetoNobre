@@ -84,7 +84,7 @@ const Sigin = () => {
     e.preventDefault()
 
     try {
-      const fetchRegisterTeacher = await fetch('http://localhost:3000/register-teacher', {
+      const fetchRegisterTeacher = await fetch('https://node-mongo-t3v4.onrender.com/register-teacher', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
