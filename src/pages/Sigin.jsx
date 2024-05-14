@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 
 const Sigin = () => {
@@ -109,12 +109,64 @@ const Sigin = () => {
     }
   }
 
+
+  // LISTA DE ALUNOS E EXCLUSÃO //
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [alunos, setAlunos] = useState([]);
+
+  useEffect(() => {
+    const fetchAlunos = async () => {
+      try {
+        const response = await fetch("https://node-mongo-t3v4.onrender.com/usuarios");
+        if (response.ok) {
+          const data = await response.json();
+          setAlunos(data);
+        } else {
+          throw new Error("Erro ao carregar lista de alunos");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchAlunos();
+  }, [modalOpen]);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleDeleteAluno = async (id) => {
+    try {
+      const response = await fetch(`https://node-mongo-t3v4.onrender.com/usuarios/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        alert("Aluno excluído com sucesso!");
+        setModalOpen(false); // Fechar o modal após excluir o aluno
+      } else {
+        throw new Error("Erro ao excluir aluno");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Ocorreu um erro ao excluir o aluno. Por favor, tente novamente.");
+    }
+  };
+
   return (
     <>
       <Header />
       <div className="content-admin">
         <form className="form-login" onSubmit={handleRegisterSubmit} encType="multipart/form-data">
-          <legend>Registro de alunos para declaração</legend>
+          <div className="modal-flex">
+            <legend>Registro de alunos para declaração</legend>
+            <button className="modal-btn" onClick={openModal}>Ver Alunos</button>
+          </div>
           <div className="input-admin">
             <label htmlFor="nome">Nome Completo</label>
             <input
@@ -203,6 +255,22 @@ const Sigin = () => {
           </div>
         </form>
       </div>
+      {modalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>Lista de Alunos</h2>
+            <ul>
+              {alunos.map((aluno) => (
+                <li key={aluno.id}>
+                  {aluno.nome}
+                  <span className="delete-icon" onClick={() => handleDeleteAluno(aluno.id)}>🗑️</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </>
   );
 };
