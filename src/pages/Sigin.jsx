@@ -118,7 +118,7 @@ const Sigin = () => {
   useEffect(() => {
     const fetchAlunos = async () => {
       try {
-        const response = await fetch("http://localhost:3000/usuarios");
+        const response = await fetch("https://node-mongo-t3v4.onrender.com/usuarios");
         if (response.ok) {
           const data = await response.json();
           setAlunos(data);
