@@ -21,7 +21,7 @@ const Sigin = () => {
       formData.append('password', registerData.password);
       formData.append('file', registerData.file);
 
-      const fetchData = await fetch('https://node-mongo-t3v4.onrender.com/register', {
+      const fetchData = await fetch('http://localhost:3000/register', {
         method: 'POST',
         body: formData,
       });
@@ -84,7 +84,7 @@ const Sigin = () => {
     e.preventDefault()
 
     try {
-      const fetchRegisterTeacher = await fetch('https://node-mongo-t3v4.onrender.com/register-teacher', {
+      const fetchRegisterTeacher = await fetch('http://localhost:3000/register-teacher', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -118,7 +118,7 @@ const Sigin = () => {
   useEffect(() => {
     const fetchAlunos = async () => {
       try {
-        const response = await fetch("https://node-mongo-t3v4.onrender.com/usuarios");
+        const response = await fetch("http://localhost:3000/usuarios");
         if (response.ok) {
           const data = await response.json();
           setAlunos(data);
@@ -143,12 +143,12 @@ const Sigin = () => {
 
   const handleDeleteAluno = async (id) => {
     try {
-      const response = await fetch(`https://node-mongo-t3v4.onrender.com/usuarios/${id}`, {
+      const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
         alert("Aluno excluído com sucesso!");
-        setModalOpen(false); // Fechar o modal após excluir o aluno
+        setModalOpen(false);
       } else {
         throw new Error("Erro ao excluir aluno");
       }

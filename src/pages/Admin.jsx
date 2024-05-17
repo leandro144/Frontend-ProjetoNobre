@@ -22,7 +22,7 @@ const Admin = () => {
     e.preventDefault();
 
     try {
-      const fetchData = await fetch("https://node-mongo-t3v4.onrender.com/login-admin", {
+      const fetchData = await fetch("http://localhost:3000/login-admin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

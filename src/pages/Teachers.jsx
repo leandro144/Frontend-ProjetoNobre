@@ -23,7 +23,7 @@ const Teachers = () => {
     e.preventDefault();
   
     try {
-      const fetchLogin = await fetch('https://node-mongo-t3v4.onrender.com/login-teacher', {
+      const fetchLogin = await fetch('http://localhost:3000/login-teacher', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

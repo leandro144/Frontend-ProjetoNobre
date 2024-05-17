@@ -25,7 +25,7 @@ const DashTeachers = () => {
     const fetchTeacherData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('https://node-mongo-t3v4.onrender.com/get-teacher-data', {
+        const response = await fetch('http://localhost:3000/get-teacher-data', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -50,7 +50,7 @@ const DashTeachers = () => {
     const fetchStudents = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('https://node-mongo-t3v4.onrender.com/usuarios', {
+        const response = await fetch('http://localhost:3000/usuarios', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -92,7 +92,7 @@ const DashTeachers = () => {
     e.preventDefault();
 
     try {
-      const fetchSubmit = await fetch('https://node-mongo-t3v4.onrender.com/add-dayli', {
+      const fetchSubmit = await fetch('http://localhost:3000/add-dayli', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
