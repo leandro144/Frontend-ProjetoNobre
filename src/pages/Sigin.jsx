@@ -84,7 +84,7 @@ const Sigin = () => {
     e.preventDefault()
 
     try {
-      const fetchRegisterTeacher = await fetch('http://localhost:3000/register-teacher', {
+      const fetchRegisterTeacher = await fetch('https://node-mongo-t3v4.onrender.com/register-teacher', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ const Sigin = () => {
 
   const handleDeleteAluno = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+      const response = await fetch(`https://node-mongo-t3v4.onrender.com/usuarios/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
