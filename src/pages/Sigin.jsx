@@ -21,7 +21,7 @@ const Sigin = () => {
       formData.append('password', registerData.password);
       formData.append('file', registerData.file);
 
-      const fetchData = await fetch('http://localhost:3000/register', {
+      const fetchData = await fetch('https://node-mongo-t3v4.onrender.com/register', {
         method: 'POST',
         body: formData,
       });

@@ -13,7 +13,7 @@ const Dashboard = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const fetchData = await fetch("http://localhost:3000/user-data", {
+        const fetchData = await fetch("https://node-mongo-t3v4.onrender.com/user-data", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -57,7 +57,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       const fileName = userData.filePath;
   
-      const fetchData = await fetch(`http://localhost:3000/download-pdf/${fileName}`, {
+      const fetchData = await fetch(`https://node-mongo-t3v4.onrender.com/download-pdf/${fileName}`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`
