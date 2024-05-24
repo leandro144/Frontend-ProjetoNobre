@@ -14,7 +14,7 @@ const Contact = () => {
             <input type="tel" name="telefone" placeholder="ex:(11)0000-0000" className="input-field" />
             <input type="text" name="curso" placeholder="Curso de interesse" className="input-field" />
             <input name="_formsubmit_id" type="text" style={{ display: 'none' }} />
-            <button type="submit" className="submit-button">Enviar</button>
+            <button type="submit" id="submit-button">Enviar</button>
           </form>
         </div>
       </div>

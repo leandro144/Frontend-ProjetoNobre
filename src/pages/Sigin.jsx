@@ -262,15 +262,16 @@ const Sigin = () => {
             <h2>Lista de Alunos</h2>
             <ul>
               {alunos.map((aluno) => (
-                <li key={aluno.id}>
+                <li key={aluno._id}>
                   {aluno.nome}
-                  <span className="delete-icon" onClick={() => handleDeleteAluno(aluno.id)}>🗑️</span>
+                  <span className="delete-icon" onClick={() => handleDeleteAluno(aluno._id)}>🗑️</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       )}
+
     </>
   );
 };
