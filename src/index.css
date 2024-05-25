@@ -28,7 +28,8 @@ nav ul {
 nav ul li a{
   text-decoration: none;
   color: #434851;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
@@ -479,7 +480,7 @@ footer {
 
 .content-dash-teacher {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 1rem 0;
   background-color: #03B1E9;
   display: flex;
@@ -501,7 +502,7 @@ footer {
 
 .show-details {
   background-color: #fff;
-  width: 200px;
+  width: 80%;
   padding: 1rem .625rem;
   border-radius: 5px;
   display: flex;
@@ -611,6 +612,19 @@ button[type='submit']:hover {
 
 .custom-table tbody tr:hover {
   background-color: #ddd;
+}
+
+.logout-adm {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2%;
+}
+
+.logout-adm button {
+  background-color: red;
+  color: #fff;
+  width: 5vw;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

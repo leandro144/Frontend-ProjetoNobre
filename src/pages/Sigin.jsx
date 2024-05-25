@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import {  useNavigate } from "react-router-dom"; // Certifique-se de estar usando react-router-dom para navegação
 import Header from "../components/Header";
+import Modal from "../components/Modal";
 
 const Sigin = () => {
+  const navigate = useNavigate(); 
 
-  // REGISTRO DE ALUNOS //
   const [registerData, setRegisterData] = useState({
     nome: '',
     email: '',
@@ -13,7 +15,6 @@ const Sigin = () => {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const formData = new FormData();
       formData.append('nome', registerData.nome);
@@ -63,14 +64,13 @@ const Sigin = () => {
     }));
   };
 
-  // REGISTRO DE PROFESSORES //
-
+  // State for teacher registration
   const [registerTeacher, setRegisterTeacher] = useState({
     name: '',
     email: '',
     password: '',
     matters: ''
-  })
+  });
 
   const handleRegisterTeacherChange = (e) => {
     const { name, value } = e.target;
@@ -81,8 +81,7 @@ const Sigin = () => {
   };
 
   const handleTeacherSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
     try {
       const fetchRegisterTeacher = await fetch('https://node-mongo-t3v4.onrender.com/register-teacher', {
         method: 'POST',
@@ -90,30 +89,29 @@ const Sigin = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(registerTeacher)
-      })
+      });
 
-      if(fetchRegisterTeacher.ok){
-        const res = await fetchRegisterTeacher.json()
-        setRegisterTeacher(res)
+      if (fetchRegisterTeacher.ok) {
+        const res = await fetchRegisterTeacher.json();
+        setRegisterTeacher(res);
         setRegisterTeacher({
           name: '',
           email: '',
           password: '',
           matters: '',
-        })
-        alert('professor adicionado com sucesso!!')
+        });
+        alert('Professor adicionado com sucesso!!');
       }
     } catch (error) {
-      console.log(error)
-      alert('Erro ao cadastrar professor!!')
+      console.log(error);
+      alert('Erro ao cadastrar professor!!');
     }
-  }
+  };
 
-
-  // LISTA DE ALUNOS E EXCLUSÃO //
-
+  // State for student list and modal visibility
   const [modalOpen, setModalOpen] = useState(false);
   const [alunos, setAlunos] = useState([]);
+  const [teacherModalOpen, setTeacherModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchAlunos = async () => {
@@ -158,14 +156,31 @@ const Sigin = () => {
     }
   };
 
+  const handleModalTeacher = () => {
+    setTeacherModalOpen(true);
+  };
+
+  const closeTeacherModal = () => {
+    setTeacherModalOpen(false);
+  };
+
+  // Função de logout
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/secretaria');
+  };
+
   return (
     <>
       <Header />
+      <div className="logout-adm">
+        <button onClick={handleLogout}>Sair</button>
+      </div>
       <div className="content-admin">
         <form className="form-login" onSubmit={handleRegisterSubmit} encType="multipart/form-data">
           <div className="modal-flex">
             <legend>Registro de alunos para declaração</legend>
-            <button className="modal-btn" onClick={openModal}>Ver Alunos</button>
+            <button className="modal-btn" type="button" onClick={openModal}>Ver Alunos</button>
           </div>
           <div className="input-admin">
             <label htmlFor="nome">Nome Completo</label>
@@ -208,8 +223,11 @@ const Sigin = () => {
             <button type="submit" id="btn" style={{ cursor: 'pointer' }}>Enviar</button>
           </div>
         </form>
-        <form className="form-login" onSubmit={handleTeacherSubmit} >
-          <legend>Cadastrar professores</legend>
+        <form className="form-login" onSubmit={handleTeacherSubmit}>
+          <div className="modal-flex">
+            <legend>Cadastro de professores</legend>
+            <button className="modal-btn" type="button" onClick={handleModalTeacher}>Professores</button>
+          </div>
           <div className="input-admin">
             <label htmlFor="nome">Nome Completo</label>
             <input
@@ -241,11 +259,11 @@ const Sigin = () => {
               required />
           </div>
           <div className="input-admin">
-            <label htmlFor="password">Matéria</label>
+            <label htmlFor="matters">Matéria</label>
             <input
               type="text"
               name="matters"
-              placeholder="displina que dará aula"
+              placeholder="disciplina que dará aula"
               value={registerTeacher.matters}
               onChange={handleRegisterTeacherChange}
               required />
@@ -271,7 +289,7 @@ const Sigin = () => {
           </div>
         </div>
       )}
-
+      <Modal isVisible={teacherModalOpen} onClose={closeTeacherModal} />
     </>
   );
 };
